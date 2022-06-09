@@ -15,19 +15,20 @@ export const DisplayMapFC = () => {
         // `mapRef.current` will be `undefined` when this hook first runs; edge case that
         if (!mapRef.current) return;
         const H = window.H;
+
         const platform = new H.service.Platform({
             apikey: "tKHFcIMhSnMSuZaHJZRV2oi8d_qWa12WEgLU1k8595U"
         });
         const defaultLayers = platform.createDefaultLayers();
         const hMap = new H.Map(mapRef.current, defaultLayers.vector.normal.map, {
-            center: { lat: 50, lng: 5 },
+            center: { lat: 50, lng: 30 },
             zoom: 4,
             pixelRatio: window.devicePixelRatio || 1
         });
 
-        const behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(hMap));
+        new H.mapevents.Behavior(new H.mapevents.MapEvents(hMap));
 
-        const ui = H.ui.UI.createDefault(hMap, defaultLayers);
+        H.ui.UI.createDefault(hMap, defaultLayers);
 
         // This will act as a cleanup to run once this hook runs again.
         // This includes when the component un-mounts

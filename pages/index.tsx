@@ -1,8 +1,9 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import { DisplayMapClass } from '../components/DisplayMapClass';
-import {DisplayMapFC} from "../components/DisplayMapFC";
+
+// TypeScript
+import { DisplayMapFC } from '../components/DisplayMapFC';
 
 export default function Home() {
   return (
